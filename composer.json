@@ -1,0 +1,22 @@
+{
+    "name": "nology/module-qpay",
+    "description": "",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Ansyori",
+            "email": "ansyori@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Nology\\Qpay\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}
