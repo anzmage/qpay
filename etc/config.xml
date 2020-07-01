@@ -9,6 +9,10 @@
 				<title>Qpay</title>
 				<allowspecific>0</allowspecific>
 				<group>offline</group>
+				<pay_redirect_url>https://pgtest3.qcb.gov.qa/QPayOnePC/PaymentPayServlet</pay_redirect_url>
+				<currency_code>840</currency_code>
+				<lang_code>AR</lang_code>
+				<national_id>UAE</national_id>
 			</qpay>
 		</payment>
 	</default>

@@ -34,10 +34,26 @@
 					<label>Merchant Id</label>
 				</field>
 				
-				<field id="pun" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="53" translate="label" type="text">
-					<label>PUN</label>
+				
+				<field id="secret_key" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="53" translate="label" type="text">
+					<label>Secret Key</label>
 				</field>
 				
+				<field id="pay_redirect_url" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="54" translate="label" type="text">
+					<label>Payment Redirect Url</label>
+				</field>
+				
+				<field id="currency_code" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="55" translate="label" type="text">
+					<label>Currency Code</label>
+				</field>
+				
+				<field id="lang_code" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="56" translate="label" type="text">
+					<label>Language Code</label>
+				</field>
+				
+				<field id="national_id" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="56" translate="label" type="text">
+					<label>National Id</label>
+				</field>
 				
 				<field id="sort_order" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="99999" translate="label" type="text">
 					<label>Sort Order</label>

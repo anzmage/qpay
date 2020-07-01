@@ -1,11 +1,17 @@
+/*browser:true*/
+/*global define*/
 define(
     [
-        'Magento_Checkout/js/view/payment/default'
+        'ko',
+        'jquery',
+        'Magento_Checkout/js/view/payment/default',
+		'Nology_Qpay/js/action/set-payment-method-action'
     ],
-    function (Component) {
+    function (ko, $, Component, setPaymentMethodAction) {
         'use strict';
         return Component.extend({
             defaults: {
+				redirectAfterPlaceOrder: false,
                 template: 'Nology_Qpay/payment/qpay'
             },
             getMailingAddress: function () {
@@ -15,6 +21,10 @@ define(
 				//var instructions = window.checkoutConfig.payment.instructions[this.item.method];
 				return '';
             },
+			afterPlaceOrder: function () {
+                setPaymentMethodAction(this.messageContainer);
+                return false;
+            }
         });
     }
 );
