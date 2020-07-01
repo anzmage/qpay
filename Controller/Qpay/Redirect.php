@@ -36,7 +36,7 @@ class Redirect extends \Magento\Framework\App\Action\Action
 		echo 'PAYONE_SECRET_KEY:'.$PAYONE_SECRET_KEY.chr(10);
 		$formatedRequestDate = date('dmYHis'); //'02042016224357'
 		$parameters = array();
-		$parameters['Action'] = '14';
+		$parameters['Action'] = '0';
 		$parameters['BankID'] = $this->getConfigValue('bank_id'); //Use your Bank(Acquirer) ID
 		$parameters['MerchantID'] = $this->getConfigValue('merchant_id'); //Use your Merchant ID
 		$parameters['CurrencyCode'] = $this->getConfigValue('merchant_id'); //840 for USD
@@ -88,7 +88,7 @@ class Redirect extends \Magento\Framework\App\Action\Action
 		foreach($parameters as $pkey=>$pval)
 		echo "<input type='hidden' name='$pkey' value='$pval' /> ";
 		echo '</form>';
-		//echo '<script>document.redirectForm.submit();</script>';
+		echo '<script>document.redirectForm.submit();</script>';
 		
 		?>
 		
