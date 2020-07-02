@@ -8,12 +8,24 @@
 				<order_status>pending</order_status>
 				<title>Qpay</title>
 				<allowspecific>0</allowspecific>
-				<group>offline</group>
+				<group>nology</group>
 				<pay_redirect_url>https://pgtest3.qcb.gov.qa/QPayOnePC/PaymentPayServlet</pay_redirect_url>
 				<currency_code>840</currency_code>
 				<lang_code>AR</lang_code>
 				<national_id>UAE</national_id>
 			</qpay>
+			<mpgs>
+				<active>1</active>
+				<model>Nology\Qpay\Model\Payment\Mpgs</model>
+				<order_status>pending</order_status>
+				<title>Doha Bank (MPGS)</title>
+				<allowspecific>0</allowspecific>
+				<group>nology</group>
+				<!-- <pay_redirect_url>https://pgtest3.qcb.gov.qa/QPayOnePC/PaymentPayServlet</pay_redirect_url>
+				<currency_code>840</currency_code>
+				<lang_code>AR</lang_code>
+				<national_id>UAE</national_id> -->
+			</mpgs>
 		</payment>
 	</default>
 </config>

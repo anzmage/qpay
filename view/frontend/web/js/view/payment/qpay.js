@@ -12,6 +12,10 @@ define(
             {
                 type: 'qpay',
                 component: 'Nology_Qpay/js/view/payment/method-renderer/qpay-method'
+            },
+			{
+                type: 'mpgs',
+                component: 'Nology_Qpay/js/view/payment/method-renderer/mpgs-method'
             }
         );
         return Component.extend({});
