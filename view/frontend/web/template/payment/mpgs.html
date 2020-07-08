@@ -33,13 +33,13 @@
                 <button class="action primary checkout"
                         type="submit"
                         data-bind="
-                        click: placeOrder,
-                        attr: {'title': $t('Place Order')},
+                        click: popupPayment,
+                        attr: {'title': $t('Pay')},
                         enable: (getCode() == isChecked()),
                         css: {disabled: !isPlaceOrderActionAllowed()}
                         "
                         disabled>
-                    <span data-bind="i18n: 'Place Order'"></span>
+                    <span data-bind="i18n: 'Pay'"></span>
                 </button>
             </div>
         </div>
