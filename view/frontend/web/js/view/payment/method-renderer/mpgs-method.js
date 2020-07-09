@@ -19,44 +19,36 @@ define(
                 return window.checkoutConfig.payment.checkmo.mailingAddress;
             },
 			popupPayment: function(){
-				
-				console.log('trigger pop here');
-				
+				$('body').trigger('processStart');
 				Checkout.configure({
-					merchant   : 'DB92668',
+					merchant   : window.checkoutConfig.mpgs_mid,
 					order      : {
-						amount     : function () { //Dynamic calculation of amount
-							return 80 + 20
+						amount     : function () { 
+							return window.checkoutConfig.quoteData.grand_total;
 						},
 						currency   : 'QAR',
-						description: 'Ordered goods',
-						id: '0000002'
+						description: 'Ordered goods'/*,
+						id: '0000002'*/
 					},
 					billing    : {
 						address: {
-							street       : '123 Customer Street',
-							city         : 'Metropolis',
-							postcodeZip  : '99999',
-							stateProvince: 'QTAR',
+							street       : '',
+							city         : '',
+							postcodeZip  : '',
+							stateProvince: '',
 							country      : 'QAT'
 						}
 					},
 					interaction: {
 						operation: 'PURCHASE',
 						merchant      : {
-							name   : 'Nama Merchant Euy',
-							address: {
-										  line1: '200 Sample St',
-										  line2: '1234 Example Town'            
-							},
-							email  : 'order@yourMerchantEmailAddress.com',
-							phone  : '+1 123 456 789 012'
+							name   : window.checkoutConfig.mpgs_merchant_name
 						},
 						locale        : 'en_US',
 						theme         : 'default',
 						displayControl: {
 							billingAddress  : 'OPTIONAL',
-							customerEmail   : 'OPTIONAL',
+							customerEmail   : 'HIDE',
 							orderSummary    : 'SHOW',
 							shipping        : 'HIDE'
 						}

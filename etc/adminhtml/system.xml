@@ -87,6 +87,15 @@
 					<source_model>Magento\Directory\Model\Config\Source\Country</source_model>
 					<can_be_empty>1</can_be_empty>
 				</field>
+				
+				<field id="merchant_id" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="52" translate="label" type="text">
+					<label>Merchant Id</label>
+				</field>
+				
+				<field id="store_name" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="53" translate="label" type="text">
+					<label>Store Name on Payment Popup</label>
+				</field>
+				
 				<!--
 				<field id="bank_id" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="51" translate="label" type="text">
 					<label>Bank Id</label>
