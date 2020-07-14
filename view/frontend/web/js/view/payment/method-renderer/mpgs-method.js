@@ -47,7 +47,7 @@ define(
 						locale        : 'en_US',
 						theme         : 'default',
 						displayControl: {
-							billingAddress  : 'OPTIONAL',
+							billingAddress  : 'HIDE',
 							customerEmail   : 'HIDE',
 							orderSummary    : 'SHOW',
 							shipping        : 'HIDE'
@@ -56,6 +56,7 @@ define(
 				});
 				
 				Checkout.showLightbox();
+				$('body').trigger('processStop');
 				
 				return false;
 				
