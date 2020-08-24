@@ -27,8 +27,8 @@ define(
 							return window.checkoutConfig.quoteData.grand_total;
 						},
 						currency   : 'QAR',
-						description: 'Ordered goods'/*,
-						id: '0000002'*/
+						description: 'Ordered goods',
+						id: window.checkoutConfig.quoteData.entity_id
 					},
 					billing    : {
 						address: {
@@ -56,7 +56,7 @@ define(
 				});
 				
 				Checkout.showLightbox();
-				$('body').trigger('processStop');
+				//$('body').trigger('processStop');
 				
 				return false;
 				

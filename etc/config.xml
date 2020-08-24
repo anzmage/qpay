@@ -21,6 +21,7 @@
 				<title>Doha Bank (MPGS)</title>
 				<allowspecific>0</allowspecific>
 				<group>nology</group>
+				<mpgs_url>https://test-dohabank.mtf.gateway.mastercard.com/</mpgs_url>
 				<!-- <pay_redirect_url>https://pgtest3.qcb.gov.qa/QPayOnePC/PaymentPayServlet</pay_redirect_url>
 				<currency_code>840</currency_code>
 				<lang_code>AR</lang_code>

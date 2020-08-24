@@ -92,10 +92,17 @@
 					<label>Merchant Id</label>
 				</field>
 				
-				<field id="store_name" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="53" translate="label" type="text">
+				<field id="merchant_key" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="53" translate="label" type="text">
+					<label>Merchant Key</label>
+				</field>
+				
+				<field id="store_name" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="60" translate="label" type="text">
 					<label>Store Name on Payment Popup</label>
 				</field>
 				
+				<field id="mpgs_url" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="70" translate="label" type="text">
+					<label>MPGS Base URL</label>
+				</field>
 				<!--
 				<field id="bank_id" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="51" translate="label" type="text">
 					<label>Bank Id</label>
