@@ -23,8 +23,7 @@ class CustomConfigProvider implements ConfigProviderInterface
         $config = [];
         $config['mpgs_mid'] = $this->getConfigValue('merchant_id');
 		$config['mpgs_merchant_name'] = $this->getConfigValue('store_name');
-		
-
+		$config['mpgs_base_url'] = $this->getConfigValue('mpgs_url');
         return $config;
     }
 }
