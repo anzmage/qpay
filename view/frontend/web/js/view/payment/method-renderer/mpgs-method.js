@@ -6,7 +6,7 @@ define(
         'jquery',
         'Magento_Checkout/js/view/payment/default',
 		'Nology_Qpay/js/action/set-payment-method-action',
-		'https://dohabank.gateway.mastercard.com/checkout/version/56/checkout.js'
+		window.checkoutConfig.mpgs_base_url + 'checkout/version/56/checkout.js'
     ],
     function (ko, $, Component, setPaymentMethodAction, dohabank) {
         'use strict';
@@ -20,6 +20,7 @@ define(
             },
 			popupPayment: function(){
 				$('body').trigger('processStart');
+				/*
 				Checkout.configure({
 					merchant   : window.checkoutConfig.mpgs_mid,
 					order      : {
@@ -53,9 +54,38 @@ define(
 							shipping        : 'HIDE'
 						}
 					}
-				});
+				});*/
+				
+				$.get( "/nology/mpgs/generate", function( data ) {
+				  //var returnedData = JSON.parse(data);
+				  console.log(data);
+				  //console.log(returnedData);
+				  
+				  Checkout.configure({
+					  session: { 
+						id: data.session_id
+						},
+					  interaction: {
+							merchant: {
+								name: window.checkoutConfig.mpgs_merchant_name,
+								address: {
+									line1: 'address 1',
+									line2: 'address 2'            
+								}    
+							},
+							displayControl: {
+								billingAddress  : 'HIDE',
+								customerEmail   : 'HIDE',
+								orderSummary    : 'SHOW',
+								shipping        : 'HIDE'
+							}
+					   }
+					});
 				
 				Checkout.showLightbox();
+				});
+				
+				
 				//$('body').trigger('processStop');
 				
 				return false;
