@@ -1,4 +1,3 @@
-/*jshint jquery:true*/
 define(
     [
         'jquery',

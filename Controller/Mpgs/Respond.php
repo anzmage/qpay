@@ -37,9 +37,6 @@ class Respond extends \Magento\Framework\App\Action\Action
 		{
 			$this->klog($_POST);
 		}
-
-		//echo 'test euy asdasdasd2423423432';
-		//return $this->_pageFactory->create();
 		
 		if(isset($_GET['resultIndicator']))
 		{

@@ -1,5 +1,3 @@
-/*browser:true*/
-/*global define*/
 define(
     [
         'ko',
@@ -18,7 +16,6 @@ define(
                 return window.checkoutConfig.payment.checkmo.mailingAddress;
             },
             getInstructions: function () {
-				//var instructions = window.checkoutConfig.payment.instructions[this.item.method];
 				return '';
             },
 			afterPlaceOrder: function () {

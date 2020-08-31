@@ -22,10 +22,9 @@
 				<allowspecific>0</allowspecific>
 				<group>nology</group>
 				<mpgs_url>https://test-dohabank.mtf.gateway.mastercard.com/</mpgs_url>
-				<!-- <pay_redirect_url>https://pgtest3.qcb.gov.qa/QPayOnePC/PaymentPayServlet</pay_redirect_url>
-				<currency_code>840</currency_code>
-				<lang_code>AR</lang_code>
-				<national_id>UAE</national_id> -->
+				<store_name>Nology Store</store_name>
+				<merchant_id>TESTTM99999</merchant_id>
+				<merchant_key>52bf7cbdb0ed032b0935310dcf993ba4</merchant_key>
 			</mpgs>
 		</payment>
 	</default>
