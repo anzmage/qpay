@@ -1,5 +1,3 @@
-/*browser:true*/
-/*global define*/
 define(
     [
         'ko',
@@ -20,47 +18,7 @@ define(
             },
 			popupPayment: function(){
 				$('body').trigger('processStart');
-				/*
-				Checkout.configure({
-					merchant   : window.checkoutConfig.mpgs_mid,
-					order      : {
-						amount     : function () { 
-							return window.checkoutConfig.quoteData.grand_total;
-						},
-						currency   : 'QAR',
-						description: 'Ordered goods',
-						id: window.checkoutConfig.quoteData.entity_id
-					},
-					billing    : {
-						address: {
-							street       : '',
-							city         : '',
-							postcodeZip  : '',
-							stateProvince: '',
-							country      : 'QAT'
-						}
-					},
-					interaction: {
-						operation: 'PURCHASE',
-						merchant      : {
-							name   : window.checkoutConfig.mpgs_merchant_name
-						},
-						locale        : 'en_US',
-						theme         : 'default',
-						displayControl: {
-							billingAddress  : 'HIDE',
-							customerEmail   : 'HIDE',
-							orderSummary    : 'SHOW',
-							shipping        : 'HIDE'
-						}
-					}
-				});*/
-				
-				$.get( "/nology/mpgs/generate", function( data ) {
-				  //var returnedData = JSON.parse(data);
-				  console.log(data);
-				  //console.log(returnedData);
-				  
+				$.get("/nology/mpgs/generate", function(data) {				  
 				  Checkout.configure({
 					  session: { 
 						id: data.session_id
@@ -84,21 +42,13 @@ define(
 				
 				Checkout.showLightbox();
 				});
-				
-				
-				//$('body').trigger('processStop');
-				
+								
 				return false;
 				
 			},
             getInstructions: function () {
-				//var instructions = window.checkoutConfig.payment.instructions[this.item.method];
 				return '';
-            }/*,
-			afterPlaceOrder: function () {
-                setPaymentMethodAction(this.messageContainer);
-                return false;
-            }*/
+            }
         });
     }
 );
