@@ -9,6 +9,9 @@ class MpgsHelper extends AbstractHelper
 	private $config;	
 	protected $checkoutSession;
 	protected $storeManager;
+	protected $cartRepositoryInterface;
+	protected $cartManagementInterface;
+	
 
     /**
      * @param \Magento\Framework\App\Helper\Context $context
@@ -17,12 +20,16 @@ class MpgsHelper extends AbstractHelper
         \Magento\Framework\App\Helper\Context $context,
 		\Magento\Framework\App\Config\ScopeConfigInterface $configStore,
 		\Magento\Checkout\Model\Session $checkoutSession,
-		\Magento\Store\Model\StoreManagerInterface $storeManager
+		\Magento\Store\Model\StoreManagerInterface $storeManager,
+		\Magento\Quote\Api\CartRepositoryInterface $cartRepositoryInterface,
+		\Magento\Quote\Api\CartManagementInterface $cartManagementInterface
     ) {
         parent::__construct($context);
 		$this->config = $configStore;
 		$this->checkoutSession = $checkoutSession;
 		$this->storeManager = $storeManager;
+		$this->cartRepositoryInterface = $cartRepositoryInterface;
+        $this->cartManagementInterface = $cartManagementInterface;
     }
 	
 	public function generatePaymentSession()
@@ -46,7 +53,7 @@ class MpgsHelper extends AbstractHelper
 			"apiUsername"=>"merchant.".$MID,
 			"merchant"=>$MID,
 			"apiPassword"=>$pass,
-			"interaction.operation"=>"VERIFY",
+			"interaction.operation"=>"PURCHASE",
 			"order.id"=>($quote->getReserverdOrderId()?:'Q'.$quote->getId()),
 			"order.amount"=>$grandTotal,
 			"order.currency"=>"QAR",
@@ -86,4 +93,19 @@ class MpgsHelper extends AbstractHelper
         $logger->addWriter($writer);
         $logger->info($msg);
     }
+	
+	public function convertQuoteToOrder()
+	{
+		$checkoutSessionQuote = $this->checkoutSession->getQuote();
+		$checkoutSessionQuote->getPayment()->importData(['method' => 'mpgs']);
+		$checkoutSessionQuote->setPaymentMethod('mpgs');
+		$checkoutSessionQuote->setCustomerEmail('ansyori@gmail.com');
+		
+		$checkoutSessionQuote->save();
+		
+		$quote = $this->cartRepositoryInterface->get($checkoutSessionQuote->getId());
+        $orderId = $this->cartManagementInterface->placeOrder($checkoutSessionQuote->getId());
+        $order = $this->order->load($orderId);
+        $order->setEmailSent(0);
+	}
 }

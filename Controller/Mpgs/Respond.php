@@ -4,12 +4,16 @@ namespace Nology\Qpay\Controller\Mpgs;
 class Respond extends \Magento\Framework\App\Action\Action
 {
 	protected $_pageFactory;
+	protected $mpgsHelper;
 
 	public function __construct(
 		\Magento\Framework\App\Action\Context $context,
-		\Magento\Framework\View\Result\PageFactory $pageFactory)
+		\Magento\Framework\View\Result\PageFactory $pageFactory,
+		\Nology\Qpay\Helper\MpgsHelper $mpgsHelper
+	)
 	{
 		$this->_pageFactory = $pageFactory;
+		$this->mpgsHelper = $mpgsHelper;
 		return parent::__construct($context);
 	}
 
@@ -34,8 +38,15 @@ class Respond extends \Magento\Framework\App\Action\Action
 			$this->klog($_POST);
 		}
 
-		echo 'test euy asdasdasd2423423432';
+		//echo 'test euy asdasdasd2423423432';
 		//return $this->_pageFactory->create();
+		
+		if(isset($_GET['resultIndicator']))
+		{
+			$this->mpgsHelper->convertQuoteToOrder();
+			$this->_redirect('checkout/onepage/success');
+			return true;
+		}
 	}
 	
 	public function klog($msg, $filename = 'nology_payment_mpgs_respond.log')
