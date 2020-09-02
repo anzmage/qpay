@@ -27,6 +27,12 @@ Configure the extension in your Magento admin panel:
 ![](https://user-images.githubusercontent.com/21098575/78235369-c133c000-7502-11ea-99af-d28144d5f2ca.png "image_mag_config")
 
 4. There is 2 payment configurations QPAY & MPGS, both payment is pre-configured use test account, fill out all the  fields
+
+![](https://iili.io/dDpQ6b.png "image_mag_config")
+
+![](https://iili.io/dDpLMu.md.png "image_mag_config")
+
+
 5. Save configurations
 6. Flush Magento cache at System->Cache Management 
 
